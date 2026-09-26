@@ -1,7 +1,8 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, MeshDistortMaterial, Sparkles } from "@react-three/drei";
+import { Float, MeshDistortMaterial, Sparkles, useTexture } from "@react-three/drei";
+import { AdaptiveFrame } from "@/components/three/AdaptiveFrame";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import type { Group, Mesh } from "three";
 import * as THREE from "three";
@@ -118,11 +119,11 @@ function CoreBlob() {
       <mesh ref={mesh} position={[-0.15, 0.15, 0]}>
         <sphereGeometry args={[1.15, 64, 64]} />
         <MeshDistortMaterial
-          color="#0c3b3a"
-          emissive="#149e88"
-          emissiveIntensity={0.28}
-          roughness={0.18}
-          metalness={0.62}
+          color="#12786c"
+          emissive="#0e9b87"
+          emissiveIntensity={0.22}
+          roughness={0.16}
+          metalness={0.55}
           distort={0.42}
           speed={1.6}
         />
@@ -148,6 +149,52 @@ function CoreBlob() {
         />
       </mesh>
     </Float>
+  );
+}
+
+function PhotoFrame({
+  url,
+  position,
+  scale = 1,
+}: {
+  url: string;
+  position: [number, number, number];
+  scale?: number;
+}) {
+  const texture = useTexture(url);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  const group = useRef<Group>(null);
+
+  useFrame((state) => {
+    if (!group.current) return;
+    group.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.35 + position[0]) * 0.16;
+    group.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.55) * 0.1;
+  });
+
+  return (
+    <group ref={group} position={position} scale={scale}>
+      <mesh>
+        <planeGeometry args={[1.15, 1.45]} />
+        <meshBasicMaterial map={texture} toneMapped={false} />
+      </mesh>
+      <mesh position={[0, 0, -0.03]}>
+        <planeGeometry args={[1.26, 1.56]} />
+        <meshStandardMaterial
+          color="#0c3b3a"
+          emissive="#2ee6c5"
+          emissiveIntensity={0.28}
+        />
+      </mesh>
+    </group>
+  );
+}
+
+function FloatingPhotos() {
+  return (
+    <>
+      <PhotoFrame url="/images/doctor.jpg" position={[3.15, 0.85, 0.15]} />
+      <PhotoFrame url="/images/clinic.jpg" position={[3.45, -1.05, -0.35]} scale={0.78} />
+    </>
   );
 }
 
@@ -177,16 +224,18 @@ function CameraRig() {
 function Scene() {
   return (
     <>
-      <color attach="background" args={["#04080f"]} />
-      <fog attach="fog" args={["#04080f", 6.5, 16]} />
-      <ambientLight intensity={0.35} />
-      <pointLight position={[4, 3, 4]} intensity={28} color="#2ee6c5" distance={14} />
-      <pointLight position={[-4, -2, 2]} intensity={18} color="#e8c97a" distance={12} />
-      <spotLight position={[0, 6, 2]} intensity={20} color="#ffffff" angle={0.45} penumbra={0.7} />
-      <CoreBlob />
-      <DNAHelix />
-      <OrbitingOrbs />
-      <Sparkles count={90} scale={[10, 6, 6]} size={2.2} speed={0.4} color="#7ef0e0" opacity={0.55} />
+      <fog attach="fog" args={["#f6fafb", 9, 18]} />
+      <ambientLight intensity={0.72} />
+      <pointLight position={[4, 3, 4]} intensity={22} color="#2ee6c5" distance={14} />
+      <pointLight position={[-4, -2, 2]} intensity={14} color="#e8c97a" distance={12} />
+      <spotLight position={[0, 6, 2]} intensity={16} color="#ffffff" angle={0.45} penumbra={0.7} />
+      <AdaptiveFrame>
+        <CoreBlob />
+        <DNAHelix />
+        <OrbitingOrbs />
+        <FloatingPhotos />
+      </AdaptiveFrame>
+      <Sparkles count={70} scale={[10, 6, 6]} size={2} speed={0.35} color="#0e9b87" opacity={0.4} />
       <CameraRig />
     </>
   );
@@ -211,7 +260,7 @@ export function HeroCanvas() {
     <div className="pointer-events-none absolute inset-0">
       <Canvas
         camera={{ position: [0, 0.2, 6.2], fov: 42 }}
-        dpr={[1, 1.6]}
+        dpr={[1, 1.35]}
         gl={{ antialias: true, alpha: true }}
       >
         <Suspense fallback={null}>

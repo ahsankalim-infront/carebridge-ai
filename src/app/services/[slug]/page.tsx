@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check } from "lucide-react";
@@ -7,6 +8,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { getServiceBySlug, getServices } from "@/lib/data";
+import { serviceImage } from "@/lib/media";
 
 export const dynamic = "force-dynamic";
 
@@ -36,10 +38,25 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   return (
     <>
-      <PageHero eyebrow="Service details" title={service.title} body={service.excerpt} />
-      <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-16 lg:grid-cols-[1.2fr_0.8fr] lg:px-8">
+      <PageHero
+        eyebrow="Service details"
+        title={service.title}
+        body={service.excerpt}
+        image={serviceImage(service.slug)}
+      />
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-12 sm:px-5 sm:pb-16 lg:grid-cols-[1.2fr_0.8fr] lg:gap-8 lg:px-8">
         <Reveal>
-          <div className="glass-strong rounded-[2rem] p-8">
+          <div className="glass-strong overflow-hidden rounded-[2rem]">
+            <div className="relative h-44 sm:h-56">
+              <Image
+                src={serviceImage(service.slug)}
+                alt={service.title}
+                fill
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-5 sm:p-8">
             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-teal/12 text-teal">
               <ServiceIcon name={service.icon} className="h-7 w-7" />
             </div>
@@ -53,15 +70,16 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 </li>
               ))}
             </ul>
+            </div>
           </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <div className="rounded-[2rem] border border-gold/20 bg-linear-to-b from-[#241d0d] to-[#07131f] p-8">
+          <div className="rounded-[1.5rem] border border-gold/25 bg-linear-to-b from-[#fff8ea] to-white p-5 sm:rounded-[2rem] sm:p-8">
             <p className="text-xs tracking-[0.28em] text-gold uppercase">Outcomes</p>
             <h2 className="mt-3 font-serif text-3xl">What practices notice</h2>
             <ul className="mt-6 space-y-4">
               {service.outcomes.map((outcome) => (
-                <li key={outcome} className="rounded-2xl bg-white/5 px-4 py-3 text-sm">
+                <li key={outcome} className="rounded-2xl bg-white px-4 py-3 text-sm shadow-[0_8px_20px_rgba(16,42,48,0.06)]">
                   {outcome}
                 </li>
               ))}
@@ -73,17 +91,28 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-8 lg:px-8">
-        <h2 className="font-serif text-3xl">More ways we help</h2>
+      <section className="mx-auto max-w-7xl px-4 pb-8 sm:px-5 lg:px-8">
+        <h2 className="font-serif text-2xl sm:text-3xl">More ways we help</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {others.map((item) => (
             <Link
               key={item.slug}
               href={`/services/${item.slug}`}
-              className="glass rounded-2xl p-5 transition hover:-translate-y-1"
+              className="glass overflow-hidden rounded-2xl transition hover:-translate-y-1"
             >
-              <p className="font-semibold">{item.title}</p>
-              <p className="mt-2 text-sm text-mist">{item.excerpt}</p>
+              <div className="relative h-32">
+                <Image
+                  src={serviceImage(item.slug)}
+                  alt={item.title}
+                  fill
+                  sizes="(min-width: 1280px) 33vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-5">
+                <p className="font-semibold">{item.title}</p>
+                <p className="mt-2 text-sm text-mist">{item.excerpt}</p>
+              </div>
             </Link>
           ))}
         </div>

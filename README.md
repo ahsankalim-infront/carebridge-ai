@@ -1,6 +1,6 @@
-# CareCommerce Solutions
+# CareBridge Solutions
 
-Modern Next.js site for CareCommerce Solutions — medical billing and revenue cycle management — with 3D backgrounds and a MySQL + JSON data layer.
+Modern Next.js site for CareBridge Solutions — medical billing and revenue cycle management — with 3D backgrounds, photography, and a MySQL + JSON data layer.
 
 ## Run
 
@@ -22,7 +22,7 @@ MYSQL_HOST=127.0.0.1
 MYSQL_PORT=3306
 MYSQL_USER=root
 MYSQL_PASSWORD=
-MYSQL_DATABASE=carecommerce
+MYSQL_DATABASE=carebridge
 ```
 
 The app creates the database and tables on first successful connection, then seeds them from JSON. Contact and appointment submissions are stored in MySQL when available, otherwise appended to `data/messages.json` and `data/appointments.json`.

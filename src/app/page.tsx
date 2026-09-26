@@ -1,5 +1,6 @@
 import { ContactBand } from "@/components/home/ContactBand";
 import { Hero } from "@/components/home/Hero";
+import { PhotoShowcase } from "@/components/home/PhotoShowcase";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { SpecialtiesMarquee } from "@/components/home/SpecialtiesMarquee";
 import { Testimonials } from "@/components/home/Testimonials";
@@ -18,6 +19,7 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      <PhotoShowcase />
       <ServicesGrid services={services.data} />
       <SpecialtiesMarquee specialties={specialties.data} />
       <WhyChoose />

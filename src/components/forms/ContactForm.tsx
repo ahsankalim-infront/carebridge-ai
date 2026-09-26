@@ -40,7 +40,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="glass-strong space-y-4 rounded-[2rem] p-6 md:p-8">
+    <form onSubmit={onSubmit} className="glass-strong space-y-4 rounded-[1.5rem] p-5 sm:rounded-[2rem] sm:p-6 md:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block text-sm">
           <span className="mb-2 block text-mist">Full Name</span>
@@ -91,7 +91,7 @@ export function ContactForm() {
         </p>
       ) : null}
       {status.state === "error" ? (
-        <p className="rounded-2xl bg-red-500/10 px-4 py-3 text-sm text-red-200">
+        <p className="rounded-2xl bg-red-500/10 px-4 py-3 text-sm text-red-700">
           {status.message}
         </p>
       ) : null}

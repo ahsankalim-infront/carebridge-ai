@@ -1,13 +1,13 @@
 export const company = {
-  name: "CareCommerce Solutions",
-  shortName: "CareCommerce",
+  name: "CareBridge Solutions",
+  shortName: "CareBridge",
   tagline: "Transforming Healthcare Revenue",
   description:
     "Empowering healthcare providers with innovative revenue cycle management solutions.",
   phone: "+1 737-443-5680",
   phoneHref: "tel:+17374435680",
-  email: "info@carecommercesolutions.com",
-  emailHref: "mailto:info@carecommercesolutions.com",
+  email: "info@carebridgesolutions.com",
+  emailHref: "mailto:info@carebridgesolutions.com",
   address: "5900 Balcones Dr STE 100, Austin, TX",
   hours: "Mon–Fri, 8:00 AM – 6:00 PM CT",
 } as const;

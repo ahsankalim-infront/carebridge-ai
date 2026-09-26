@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Outfit } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -18,8 +19,8 @@ const instrument = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "CareCommerce Solutions | Medical Billing & Revenue Cycle",
-    template: "%s | CareCommerce Solutions",
+    default: "CareBridge Solutions | Medical Billing & Revenue Cycle",
+    template: "%s | CareBridge Solutions",
   },
   description:
     "Empowering healthcare providers with innovative revenue cycle management, medical billing, credentialing, A/R recovery, and denial management.",
@@ -33,10 +34,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${outfit.variable} ${instrument.variable} h-full antialiased`}
     >
-      <body className="bg-site relative min-h-full flex flex-col font-sans">
+      <body className="bg-site relative flex min-h-full flex-col overflow-x-hidden font-sans">
         <div className="grain" />
+        <CustomCursor />
         <Header />
         <main className="relative z-10 flex-1">{children}</main>
         <Footer />

@@ -15,7 +15,7 @@ export function DataSourceBadge() {
   if (!source) return null;
 
   return (
-    <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] tracking-wide text-mist/80 uppercase">
+    <span className="rounded-full border border-black/10 px-2.5 py-1 text-[10px] tracking-wide text-mist uppercase">
       Data: {source}
     </span>
   );

@@ -3,6 +3,7 @@ import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { ContactBand } from "@/components/home/ContactBand";
 import { PageHero } from "@/components/layout/PageHero";
 import { getServices } from "@/lib/data";
+import { images } from "@/lib/media";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,7 @@ export default async function ServicesPage() {
         eyebrow="Full-cycle RCM"
         title="Services built for cleaner cash."
         body="Six connected disciplines—coding, enrollment, eligibility, recovery, denials, and analytics—working as one operating system for your revenue."
+        image={images.clinic}
       />
       <ServicesGrid
         services={services.data}

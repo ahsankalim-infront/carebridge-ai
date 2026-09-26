@@ -22,20 +22,27 @@ export function Header() {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <header
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
-        scrolled || open ? "glass-strong" : "bg-transparent"
+      className={`fixed top-0 right-0 left-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-300 ${
+        scrolled || open ? "glass-strong" : "bg-white/85 shadow-sm lg:bg-transparent lg:shadow-none"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-linear-to-br from-teal to-teal-dim text-sm font-bold text-ink shadow-[0_0_24px_rgba(46,230,197,0.35)]">
-            CC
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-5 sm:py-4 lg:px-8">
+        <Link href="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+          <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-teal to-teal-dim text-sm font-bold text-white shadow-[0_0_20px_rgba(14,155,135,0.28)] sm:h-10 sm:w-10">
+            CB
           </span>
           <span className="leading-tight">
             <span className="block text-sm font-semibold tracking-wide">
-              CareCommerce
+              CareBridge
             </span>
             <span className="block text-[11px] text-mist/70">Solutions</span>
           </span>
@@ -72,23 +79,28 @@ export function Header() {
 
         <button
           type="button"
-          className="rounded-xl border border-white/10 p-2 lg:hidden"
+          className="rounded-xl border border-black/10 p-2.5 lg:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open ? (
-        <div className="border-t border-white/10 px-5 py-5 lg:hidden">
+        <div className="max-h-[calc(100svh-4.5rem)] overflow-y-auto border-t border-black/8 px-4 py-5 sm:px-5 lg:hidden">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-lg text-ivory">
+              <Link key={link.href} href={link.href} className="py-1 text-lg text-ivory">
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="btn-primary mt-2">
+            <a href={company.phoneHref} className="flex items-center gap-2 py-1 text-mist">
+              <Phone className="h-4 w-4 text-teal" />
+              {company.phone}
+            </a>
+            <Link href="/contact" className="btn-primary mt-2 w-full">
               Get a Quote
             </Link>
           </div>
