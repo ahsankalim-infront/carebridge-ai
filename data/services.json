@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "slug": "medical-billing-coding",
+    "title": "Medical Billing & Coding",
+    "excerpt": "Maximize reimbursements with meticulous claim prep and industry-standard coding. Clean claims, faster payments.",
+    "description": "Our certified coding team prepares every claim against current CPT, ICD-10, and HCPCS guidelines, payer edits, and specialty-specific rules. We reduce preventable rejections, accelerate first-pass acceptance, and keep documentation aligned with what payers actually reimburse.",
+    "icon": "billing",
+    "features": [
+      "Specialty-specific CPT and ICD-10 coding review",
+      "Claim scrubbing against payer-specific edits",
+      "Charge capture audits and missing-code recovery",
+      "Modifier and NCCI conflict resolution",
+      "Daily submission windows with status tracking"
+    ],
+    "outcomes": [
+      "Higher first-pass clean claim rates",
+      "Fewer coding-related denials",
+      "Faster average days to payment"
+    ],
+    "sortOrder": 1
+  },
+  {
+    "id": 2,
+    "slug": "credentialing-enrollment",
+    "title": "Credentialing & Enrollment",
+    "excerpt": "Rapid, compliant payer enrollment. We handle the paperwork so providers can focus on patients.",
+    "description": "Credentialing delays quietly stall revenue. We manage CAQH, PECOS, Medicaid, and commercial enrollment end to end—applications, primary source verification, follow-ups, and re-credentialing calendars—so new providers and locations start billing sooner.",
+    "icon": "credentialing",
+    "features": [
+      "Commercial, Medicare, and Medicaid enrollment",
+      "CAQH and PECOS profile maintenance",
+      "Group, location, and rendering provider setup",
+      "Re-credentialing calendar and expiry alerts",
+      "Dedicated project manager through go-live"
+    ],
+    "outcomes": [
+      "Shorter payer setup timelines",
+      "Fewer application defects",
+      "Continuity when adding providers"
+    ],
+    "sortOrder": 2
+  },
+  {
+    "id": 3,
+    "slug": "ar-recovery",
+    "title": "A/R Recovery",
+    "excerpt": "Slash aged receivables with targeted follow-up, root-cause fixes, and airtight workflows.",
+    "description": "Aged A/R is rarely a follow-up problem alone. We segment inventory by payer, age, and denial reason, work the recoverable dollars first, and close the process gaps that keep the same balances aging month after month.",
+    "icon": "ar",
+    "features": [
+      "0–30, 31–60, 61–90, and 90+ day work queues",
+      "Payer-specific follow-up protocols",
+      "Underpayment and contractual variance review",
+      "Patient-balance and courtesy billing options",
+      "Weekly A/R aging and cash-forecast reports"
+    ],
+    "outcomes": [
+      "Lower A/R days outstanding",
+      "Recovered aged inventory",
+      "Fewer recurring leakage patterns"
+    ],
+    "sortOrder": 3
+  },
+  {
+    "id": 4,
+    "slug": "eligibility-verification",
+    "title": "Eligibility Verification",
+    "excerpt": "Stop rejections before they start with upfront benefits checks and real-time coverage validation.",
+    "description": "Most denials are born at the front desk. We verify coverage, benefits, authorizations, and patient responsibility before the visit so claims leave clean and patients understand their share of cost.",
+    "icon": "eligibility",
+    "features": [
+      "Real-time eligibility and benefits checks",
+      "Authorization and referral tracking",
+      "Coverage change alerts before service",
+      "Patient responsibility estimates",
+      "Payer portal and clearinghouse automation"
+    ],
+    "outcomes": [
+      "Fewer eligibility rejections",
+      "Clearer patient estimates",
+      "Smoother day-of-service intake"
+    ],
+    "sortOrder": 4
+  },
+  {
+    "id": 5,
+    "slug": "denial-management",
+    "title": "Denial Management",
+    "excerpt": "Find the “why,” fix the “how.” Analytics-driven appeals and resubmissions that recover revenue.",
+    "description": "We treat denials as a diagnostic signal. Every rejection is categorized, appealed when warranted, and traced back to coding, enrollment, eligibility, or documentation so the same dollar is not lost twice.",
+    "icon": "denial",
+    "features": [
+      "Denial taxonomy and root-cause analytics",
+      "Timely appeals with clinical support packets",
+      "Corrected claim and reconsideration workflows",
+      "Payer rule library by specialty",
+      "Prevention playbooks for high-volume CARCs"
+    ],
+    "outcomes": [
+      "Higher overturn and recovery rates",
+      "Declining repeat denial volume",
+      "Documented prevention actions"
+    ],
+    "sortOrder": 5
+  },
+  {
+    "id": 6,
+    "slug": "revenue-analytics",
+    "title": "Revenue Analytics",
+    "excerpt": "Actionable dashboards and KPI tracking to spot leakage and surface optimization opportunities.",
+    "description": "Leadership should not wait for a month-end spreadsheet. Our dashboards track clean claims, A/R days, net collection rate, denial mix, and specialty performance so decisions happen while the money is still recoverable.",
+    "icon": "analytics",
+    "features": [
+      "Live KPI dashboards for owners and managers",
+      "Payer mix, specialty, and provider scorecards",
+      "Leakage and underpayment detection",
+      "Monthly performance reviews with next actions",
+      "Export-ready reporting for boards and CFOs"
+    ],
+    "outcomes": [
+      "Same-week visibility into cash",
+      "Faster leadership decisions",
+      "Clear ROI on RCM operations"
+    ],
+    "sortOrder": 6
+  }
+]

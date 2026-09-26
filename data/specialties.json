@@ -1,0 +1,17 @@
+[
+  { "id": 1, "name": "Internal Medicine", "category": "Primary", "sortOrder": 1 },
+  { "id": 2, "name": "Family Practice", "category": "Primary", "sortOrder": 2 },
+  { "id": 3, "name": "Primary Care", "category": "Primary", "sortOrder": 3 },
+  { "id": 4, "name": "Wound Care", "category": "Specialty", "sortOrder": 4 },
+  { "id": 5, "name": "Radiology", "category": "Diagnostic", "sortOrder": 5 },
+  { "id": 6, "name": "Hospital", "category": "Facility", "sortOrder": 6 },
+  { "id": 7, "name": "Mental Health", "category": "Behavioral", "sortOrder": 7 },
+  { "id": 8, "name": "Psychology", "category": "Behavioral", "sortOrder": 8 },
+  { "id": 9, "name": "Prosthesis", "category": "Specialty", "sortOrder": 9 },
+  { "id": 10, "name": "Courtesy Billing", "category": "Support", "sortOrder": 10 },
+  { "id": 11, "name": "Laboratory Billing", "category": "Lab", "sortOrder": 11 },
+  { "id": 12, "name": "Pathology Lab", "category": "Lab", "sortOrder": 12 },
+  { "id": 13, "name": "Molecular Lab", "category": "Lab", "sortOrder": 13 },
+  { "id": 14, "name": "Physical Therapy", "category": "Therapy", "sortOrder": 14 },
+  { "id": 15, "name": "Speech Therapy", "category": "Therapy", "sortOrder": 15 }
+]
