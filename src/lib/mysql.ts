@@ -1,8 +1,10 @@
 import mysql, { type Pool, type RowDataPacket } from "mysql2/promise";
 import { readJsonFile } from "./json-store";
+import { isMysqlEnabled } from "./mysql-enabled";
 import type { Service, Specialty, Testimonial } from "./types";
 
 const RETRY_MS = 15_000;
+const CONNECT_MS = 1200;
 
 let pool: Pool | null = null;
 let available: boolean | null = null;
@@ -26,7 +28,7 @@ async function ensureDatabase() {
     port,
     user,
     password,
-    connectTimeout: 1200,
+    connectTimeout: CONNECT_MS,
   });
   await conn.query(
     `CREATE DATABASE IF NOT EXISTS \`${database}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`,
@@ -152,24 +154,41 @@ async function seedIfEmpty(activePool: Pool) {
   seeded = true;
 }
 
+function withTimeout<T>(promise: Promise<T>, ms: number) {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error("MySQL connection timed out")), ms);
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (error) => {
+        clearTimeout(timer);
+        reject(error);
+      },
+    );
+  });
+}
+
 export async function getMysqlPool(): Promise<Pool | null> {
+  if (!isMysqlEnabled()) return null;
   if (available === false && Date.now() - lastFailure < RETRY_MS) {
     return null;
   }
 
   try {
     if (!pool) {
-      await ensureDatabase();
+      await withTimeout(ensureDatabase(), CONNECT_MS + 400);
       const config = mysqlConfig();
       pool = mysql.createPool({
         ...config,
         waitForConnections: true,
-        connectionLimit: 8,
-        connectTimeout: 1200,
+        connectionLimit: 4,
+        connectTimeout: CONNECT_MS,
       });
     }
 
-    const connection = await pool.getConnection();
+    const connection = await withTimeout(pool.getConnection(), CONNECT_MS + 400);
     connection.release();
     await ensureSchema(pool);
     await seedIfEmpty(pool);
@@ -185,8 +204,13 @@ export async function getMysqlPool(): Promise<Pool | null> {
 }
 
 export function parseJsonColumn<T>(value: T | string): T {
-  if (typeof value === "string") {
-    return JSON.parse(value) as T;
+  if (typeof value !== "string") {
+    return value;
   }
-  return value;
+
+  try {
+    return JSON.parse(value) as T;
+  } catch {
+    return [] as T;
+  }
 }

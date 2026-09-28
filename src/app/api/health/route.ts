@@ -1,7 +1,13 @@
 import { NextResponse } from "next/server";
-import { getHealth } from "@/lib/data";
+import { isMysqlEnabled } from "@/lib/mysql-enabled";
+
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 export async function GET() {
-  const health = await getHealth();
-  return NextResponse.json(health);
+  return NextResponse.json({
+    mysql: isMysqlEnabled(),
+    fallback: "json",
+    source: isMysqlEnabled() ? "mysql" : "json",
+  });
 }

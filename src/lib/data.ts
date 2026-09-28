@@ -1,5 +1,5 @@
 import { appendJsonRecord, readJsonFile } from "./json-store";
-import { getMysqlPool, parseJsonColumn } from "./mysql";
+import { isMysqlEnabled } from "./mysql-enabled";
 import type {
   Appointment,
   ContactMessage,
@@ -8,36 +8,41 @@ import type {
   StoreResult,
   Testimonial,
 } from "./types";
-import type { ResultSetHeader, RowDataPacket } from "mysql2";
 
-function mapService(row: RowDataPacket): Service {
-  return {
-    id: Number(row.id),
-    slug: String(row.slug),
-    title: String(row.title),
-    excerpt: String(row.excerpt),
-    description: String(row.description),
-    icon: String(row.icon),
-    features: parseJsonColumn<string[]>(row.features),
-    outcomes: parseJsonColumn<string[]>(row.outcomes),
-    sortOrder: Number(row.sort_order ?? row.sortOrder ?? 0),
-  };
+async function getMysql() {
+  if (!isMysqlEnabled()) return null;
+  const { getMysqlPool } = await import("./mysql");
+  return getMysqlPool();
 }
 
 export async function getServices(): Promise<StoreResult<Service[]>> {
-  const pool = await getMysqlPool();
+  const pool = await getMysql();
   if (pool) {
     try {
-      const [rows] = await pool.query<RowDataPacket[]>(
+      const { parseJsonColumn } = await import("./mysql");
+      const [rows] = await pool.query(
         "SELECT * FROM services WHERE active = 1 ORDER BY sort_order ASC",
       );
-      return { data: rows.map(mapService), source: "mysql" };
+      return {
+        data: (rows as Array<Record<string, unknown>>).map((row) => ({
+          id: Number(row.id),
+          slug: String(row.slug),
+          title: String(row.title),
+          excerpt: String(row.excerpt),
+          description: String(row.description),
+          icon: String(row.icon),
+          features: parseJsonColumn<string[]>(row.features as string | string[]),
+          outcomes: parseJsonColumn<string[]>(row.outcomes as string | string[]),
+          sortOrder: Number(row.sort_order ?? row.sortOrder ?? 0),
+        })),
+        source: "mysql",
+      };
     } catch {
       // Fall through to JSON.
     }
   }
 
-  const data = await readJsonFile<Service[]>("services.json");
+  const data = await readJsonFile<Service[]>("services.json").catch(() => []);
   return {
     data: [...data].sort((a, b) => a.sortOrder - b.sortOrder),
     source: "json",
@@ -55,14 +60,14 @@ export async function getServiceBySlug(
 }
 
 export async function getSpecialties(): Promise<StoreResult<Specialty[]>> {
-  const pool = await getMysqlPool();
+  const pool = await getMysql();
   if (pool) {
     try {
-      const [rows] = await pool.query<RowDataPacket[]>(
+      const [rows] = await pool.query(
         "SELECT id, name, category, sort_order AS sortOrder FROM specialties ORDER BY sort_order ASC",
       );
       return {
-        data: rows.map((row) => ({
+        data: (rows as Array<Record<string, unknown>>).map((row) => ({
           id: Number(row.id),
           name: String(row.name),
           category: String(row.category),
@@ -75,7 +80,7 @@ export async function getSpecialties(): Promise<StoreResult<Specialty[]>> {
     }
   }
 
-  const data = await readJsonFile<Specialty[]>("specialties.json");
+  const data = await readJsonFile<Specialty[]>("specialties.json").catch(() => []);
   return {
     data: [...data].sort((a, b) => a.sortOrder - b.sortOrder),
     source: "json",
@@ -83,14 +88,14 @@ export async function getSpecialties(): Promise<StoreResult<Specialty[]>> {
 }
 
 export async function getTestimonials(): Promise<StoreResult<Testimonial[]>> {
-  const pool = await getMysqlPool();
+  const pool = await getMysql();
   if (pool) {
     try {
-      const [rows] = await pool.query<RowDataPacket[]>(
+      const [rows] = await pool.query(
         "SELECT id, quote, name, role, location FROM testimonials ORDER BY id ASC",
       );
       return {
-        data: rows.map((row) => ({
+        data: (rows as Array<Record<string, unknown>>).map((row) => ({
           id: Number(row.id),
           quote: String(row.quote),
           name: String(row.name),
@@ -105,7 +110,7 @@ export async function getTestimonials(): Promise<StoreResult<Testimonial[]>> {
   }
 
   return {
-    data: await readJsonFile<Testimonial[]>("testimonials.json"),
+    data: await readJsonFile<Testimonial[]>("testimonials.json").catch(() => []),
     source: "json",
   };
 }
@@ -113,10 +118,10 @@ export async function getTestimonials(): Promise<StoreResult<Testimonial[]>> {
 export async function saveContactMessage(
   payload: ContactMessage,
 ): Promise<StoreResult<ContactMessage>> {
-  const pool = await getMysqlPool();
+  const pool = await getMysql();
   if (pool) {
     try {
-      const [result] = await pool.query<ResultSetHeader>(
+      const [result] = await pool.query(
         `INSERT INTO messages (full_name, email, phone, organization, message)
          VALUES (?, ?, ?, ?, ?)`,
         [
@@ -130,7 +135,7 @@ export async function saveContactMessage(
       return {
         data: {
           ...payload,
-          id: result.insertId,
+          id: Number((result as { insertId?: number }).insertId),
           createdAt: new Date().toISOString(),
         },
         source: "mysql",
@@ -147,10 +152,10 @@ export async function saveContactMessage(
 export async function saveAppointment(
   payload: Appointment,
 ): Promise<StoreResult<Appointment>> {
-  const pool = await getMysqlPool();
+  const pool = await getMysql();
   if (pool) {
     try {
-      const [result] = await pool.query<ResultSetHeader>(
+      const [result] = await pool.query(
         `INSERT INTO appointments
           (name, email, phone, preferred_date, preferred_time, reason)
          VALUES (?, ?, ?, ?, ?, ?)`,
@@ -166,7 +171,7 @@ export async function saveAppointment(
       return {
         data: {
           ...payload,
-          id: result.insertId,
+          id: Number((result as { insertId?: number }).insertId),
           createdAt: new Date().toISOString(),
         },
         source: "mysql",
@@ -181,10 +186,9 @@ export async function saveAppointment(
 }
 
 export async function getHealth() {
-  const pool = await getMysqlPool();
   return {
-    mysql: Boolean(pool),
+    mysql: isMysqlEnabled(),
     fallback: "json",
-    source: pool ? "mysql" : "json",
-  };
+    source: isMysqlEnabled() ? "mysql" : "json",
+  } as const;
 }

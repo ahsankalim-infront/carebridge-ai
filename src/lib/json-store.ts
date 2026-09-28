@@ -1,18 +1,42 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { getBundledJson } from "./seeds";
 
-const dataDir = path.join(process.cwd(), "data");
+const bundledDir = path.join(process.cwd(), "data");
+const writableDir =
+  process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME
+    ? path.join("/tmp", "carebridge-data")
+    : bundledDir;
+
+async function readText(filePath: string) {
+  return fs.readFile(filePath, "utf8").catch(() => "");
+}
 
 export async function readJsonFile<T>(filename: string): Promise<T> {
-  const filePath = path.join(dataDir, filename);
-  const raw = await fs.readFile(filePath, "utf8");
-  return JSON.parse(raw) as T;
+  const candidates = [path.join(writableDir, filename), path.join(bundledDir, filename)];
+
+  for (const filePath of candidates) {
+    const raw = await readText(filePath);
+    if (!raw.trim()) continue;
+    try {
+      return JSON.parse(raw) as T;
+    } catch {
+      continue;
+    }
+  }
+
+  const bundled = getBundledJson<T>(filename);
+  if (bundled !== null) return bundled;
+  return [] as T;
 }
 
 export async function writeJsonFile<T>(filename: string, value: T) {
-  const filePath = path.join(dataDir, filename);
-  await fs.mkdir(dataDir, { recursive: true });
-  await fs.writeFile(filePath, JSON.stringify(value, null, 2), "utf8");
+  await fs.mkdir(writableDir, { recursive: true });
+  await fs.writeFile(
+    path.join(writableDir, filename),
+    JSON.stringify(value, null, 2),
+    "utf8",
+  );
 }
 
 export async function appendJsonRecord<T extends { id?: number }>(

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { readResponseJson } from "@/lib/http";
 
 type Status =
   | { state: "idle" }
@@ -24,9 +25,12 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      const payload = await response.json();
-      if (!response.ok) {
-        throw new Error(payload.error || "Unable to send your message.");
+      const payload = await readResponseJson<{
+        error?: string;
+        source?: "mysql" | "json";
+      }>(response);
+      if (!response.ok || !payload?.source) {
+        throw new Error(payload?.error || "Unable to send your message.");
       }
       form.reset();
       setStatus({ state: "success", source: payload.source });

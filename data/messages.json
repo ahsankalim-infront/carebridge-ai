@@ -7,5 +7,14 @@
     "message": "Please review our A/R.",
     "id": 1,
     "createdAt": "2026-09-26T19:53:40.288Z"
+  },
+  {
+    "fullName": "Test User",
+    "email": "test@example.com",
+    "phone": "555-0100",
+    "organization": "Demo Clinic",
+    "message": "JSON parse safety check",
+    "id": 2,
+    "createdAt": "2026-09-28T05:35:19.813Z"
   }
 ]

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { readResponseJson } from "@/lib/http";
 
 const times = ["9:00 AM", "10:00 AM", "11:00 AM", "2:00 PM", "3:00 PM", "4:00 PM"];
 
@@ -26,9 +27,12 @@ export function AppointmentForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      const payload = await response.json();
-      if (!response.ok) {
-        throw new Error(payload.error || "Unable to book this consultation.");
+      const payload = await readResponseJson<{
+        error?: string;
+        source?: "mysql" | "json";
+      }>(response);
+      if (!response.ok || !payload?.source) {
+        throw new Error(payload?.error || "Unable to book this consultation.");
       }
       form.reset();
       setStatus({ state: "success", source: payload.source });
