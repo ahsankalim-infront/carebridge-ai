@@ -15,27 +15,27 @@ export function WhyChoose() {
           <div className="glass-strong overflow-hidden rounded-[1.5rem] sm:rounded-[2rem]">
             <TiltImage
               src={images.team}
-              alt="CareBridge team collaborating on revenue cycle work"
+              alt="Clinicians whose visits CareBridge bills and collects"
               className="h-48 rounded-none sm:h-56 md:h-64"
               sizes="(min-width: 1024px) 55vw, 100vw"
             />
             <div className="p-5 sm:p-8 md:p-10">
-              <p className="text-[10px] tracking-[0.18em] text-teal uppercase sm:text-xs sm:tracking-[0.32em]">
+              <p className="eyebrow text-teal">
                 Why CareBridge
               </p>
-              <h2 className="mt-3 font-serif text-[1.75rem] leading-tight sm:text-4xl md:text-5xl">
-                Healthcare expertise, financial intelligence.
+              <h2 className="section-title mt-3">
+                A medical billing company, not a generic vendor.
               </h2>
-              <p className="mt-4 max-w-xl text-sm leading-7 text-mist sm:mt-5 sm:text-base sm:leading-8">
-                We combine certified coding, payer operations, and live analytics
-                to improve reimbursement, transparency, and cash flow for medical
-                practices of every size.
+              <p className="lede mt-4 max-w-xl text-mist sm:mt-5">
+                We bill insurance for the care you already delivered — coding,
+                claim submission, denial follow-up, and payment posting for
+                clinics, labs, and specialty groups.
               </p>
               <div className="mt-6 grid gap-3 md:mt-8 md:grid-cols-3 md:gap-4">
                 {values.map((value) => (
                   <div key={value.title} className="rounded-2xl bg-teal/5 p-4">
                     <p className="font-semibold text-teal">{value.title}</p>
-                    <p className="mt-2 text-sm leading-6 text-mist">{value.body}</p>
+                    <p className="mt-2 text-base leading-7 text-mist">{value.body}</p>
                   </div>
                 ))}
               </div>
@@ -51,7 +51,7 @@ export function WhyChoose() {
                 className="glass flex min-h-28 flex-col justify-end rounded-2xl p-4 sm:min-h-36 sm:rounded-3xl sm:p-6"
               >
                 <p className="font-serif text-3xl text-gradient sm:text-4xl">{stat.value}</p>
-                <p className="mt-2 text-xs text-mist sm:text-sm">{stat.label}</p>
+                <p className="mt-2 text-sm text-mist sm:text-base">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -63,8 +63,8 @@ export function WhyChoose() {
           <Reveal key={item.step} delay={index * 0.05} className="min-w-0">
             <div className="h-full rounded-3xl border border-black/8 bg-white p-5 shadow-[0_10px_30px_rgba(16,42,48,0.05)] sm:p-6">
               <p className="font-serif text-3xl text-gold">{item.step}</p>
-              <h3 className="mt-3 text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-mist">{item.body}</p>
+              <h3 className="mt-3 text-xl font-semibold">{item.title}</h3>
+              <p className="mt-2 text-base leading-7 text-mist">{item.body}</p>
             </div>
           </Reveal>
         ))}

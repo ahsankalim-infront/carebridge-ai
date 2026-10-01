@@ -41,10 +41,10 @@ export function Header() {
             CB
           </span>
           <span className="leading-tight">
-            <span className="block text-sm font-semibold tracking-wide">
+            <span className="block text-base font-semibold tracking-wide sm:text-lg">
               CareBridge
             </span>
-            <span className="block text-[11px] text-mist/70">Solutions</span>
+            <span className="block text-xs text-mist/70 sm:text-sm">Medical Billing</span>
           </span>
         </Link>
 
@@ -53,7 +53,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm transition ${
+              className={`text-base transition ${
                 pathname === link.href
                   ? "text-teal"
                   : "text-mist hover:text-ivory"
@@ -67,13 +67,13 @@ export function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href={company.phoneHref}
-            className="flex items-center gap-2 text-sm text-mist hover:text-teal"
+            className="flex items-center gap-2 text-base text-mist hover:text-teal"
           >
             <Phone className="h-4 w-4" />
             {company.phone}
           </a>
-          <Link href="/contact" className="btn-primary !px-4 !py-2.5 text-sm">
-            Get a Quote
+          <Link href="/contact" className="btn-primary !px-4 !py-2.5 text-base">
+            Get a billing quote
           </Link>
         </div>
 
@@ -101,7 +101,7 @@ export function Header() {
               {company.phone}
             </a>
             <Link href="/contact" className="btn-primary mt-2 w-full">
-              Get a Quote
+              Get a billing quote
             </Link>
           </div>
         </div>

@@ -1,9 +1,9 @@
 export const company = {
   name: "CareBridge Solutions",
   shortName: "CareBridge",
-  tagline: "Transforming Healthcare Revenue",
+  tagline: "Medical Billing That Gets Practices Paid",
   description:
-    "Empowering healthcare providers with innovative revenue cycle management solutions.",
+    "Full-service medical billing and coding for clinics, labs, and specialty groups.",
   phone: "+1 737-443-5680",
   phoneHref: "tel:+17374435680",
   email: "info@carebridgesolutions.com",
@@ -27,46 +27,46 @@ export const partners = [
 ] as const;
 
 export const stats = [
-  { value: "98%", label: "Clean claim rate" },
-  { value: "32%", label: "Faster collections" },
-  { value: "15+", label: "Clinical specialties" },
-  { value: "24/7", label: "Claim visibility" },
+  { value: "98%", label: "First-pass clean claims" },
+  { value: "32%", label: "Faster patient collections" },
+  { value: "15+", label: "Specialties we bill" },
+  { value: "24/7", label: "Claim status visibility" },
 ] as const;
 
 export const values = [
   {
-    title: "Expert Team",
-    body: "Certified medical coders and billing specialists dedicated to accuracy, payer rules, and specialty nuance.",
+    title: "Certified billers & coders",
+    body: "CPC- and CPB-trained specialists who code CPT, ICD-10, and HCPCS against current payer rules — not generic claim pushers.",
   },
   {
-    title: "Technology-Driven",
-    body: "Advanced RCM automation and analytics that speed collections and surface leakage before it becomes A/R.",
+    title: "Payer enrollment & follow-up",
+    body: "We enroll providers, verify eligibility, submit claims daily, and work denials until the balance is paid or closed with a reason.",
   },
   {
-    title: "Transparent Reporting",
-    body: "Real-time dashboards offering clarity, KPI tracking, and insights leadership can act on the same day.",
+    title: "Clear collection reporting",
+    body: "Owners see clean-claim rate, A/R days, denial mix, and cash posted — without waiting for a month-end spreadsheet.",
   },
 ] as const;
 
 export const processSteps = [
   {
     step: "01",
-    title: "Discover",
-    body: "We audit claims, denials, enrollment, and cash flow to map leakage and quick wins.",
+    title: "Review your billing",
+    body: "We audit claim volume, denial reasons, enrollment gaps, and aged A/R so you know where money is leaking.",
   },
   {
     step: "02",
-    title: "Onboard",
-    body: "Credentialing, EHR/PM connections, and specialty playbooks go live with a dedicated manager.",
+    title: "Set up the billing file",
+    body: "Credentialing, clearinghouse, and EHR/PM connections go live with a dedicated billing manager.",
   },
   {
     step: "03",
-    title: "Optimize",
-    body: "Clean claims, eligibility, and denial loops run daily with root-cause fixes—not just follow-up.",
+    title: "Submit and follow up",
+    body: "Charges are coded, scrubbed, and submitted daily. Rejections and denials are worked the same week.",
   },
   {
     step: "04",
-    title: "Grow",
-    body: "Dashboards, monthly reviews, and specialty expansion keep reimbursement climbing.",
+    title: "Collect and report",
+    body: "Payments are posted, underpayments are appealed, and you get a simple scorecard of what was billed and collected.",
   },
 ] as const;

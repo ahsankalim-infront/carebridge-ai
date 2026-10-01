@@ -7,44 +7,44 @@ import { images } from "@/lib/media";
 const officePhotos = [
   {
     src: images.officeFloor,
-    alt: "Medical billing operations floor",
-    label: "Operations floor",
+    alt: "Billing managers reviewing collection and denial reports",
+    label: "Collection review",
     className: "h-44 sm:h-64 md:h-80",
     sizes: "100vw",
     wide: true,
   },
   {
     src: images.officeWorkstations,
-    alt: "Billing specialists at workstations",
-    label: "Coding workstations",
+    alt: "Medical billing team working payer follow-up together",
+    label: "Claim work queues",
     className: "h-36 sm:h-48 md:h-56",
     sizes: "(min-width: 768px) 50vw, 50vw",
   },
   {
     src: images.officeTeam,
-    alt: "Revenue cycle team reviewing claims",
-    label: "Claim review",
+    alt: "Practice and billing leads agreeing on an outsourced billing plan",
+    label: "Practice onboarding",
     className: "h-36 sm:h-48 md:h-56",
     sizes: "(min-width: 768px) 50vw, 50vw",
   },
   {
     src: images.officeDesk,
-    alt: "Medical biller working patient accounts",
-    label: "Patient accounts",
+    alt: "Specialist posting payments and working patient accounts",
+    label: "Payment posting",
     className: "h-36 sm:h-48 md:h-56",
     sizes: "(min-width: 768px) 33vw, 50vw",
   },
   {
     src: images.officeClaims,
-    alt: "Claims paperwork and reimbursement desk",
-    label: "Reimbursement desk",
+    alt: "Claims, invoices, and reimbursement paperwork",
+    label: "Claims & invoices",
     className: "h-36 sm:h-48 md:h-56",
     sizes: "(min-width: 768px) 33vw, 50vw",
   },
   {
     src: images.officeMeeting,
-    alt: "Billing managers planning payer follow-up",
-    label: "Payer huddle",
+    alt: "Billing huddle planning denial appeals",
+    label: "Denial huddle",
     className: "h-36 sm:h-48 md:h-56",
     sizes: "(min-width: 768px) 33vw, 50vw",
   },
@@ -58,15 +58,14 @@ export function PhotoShowcase() {
       <div className="pointer-events-none absolute inset-0 bg-white/75 md:bg-ink/35" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-5 md:py-12 lg:px-8">
         <Reveal>
-          <p className="text-[10px] tracking-[0.18em] text-teal uppercase sm:text-xs sm:tracking-[0.32em]">
-            Inside the work
-          </p>
-          <h2 className="mt-3 font-serif text-[1.75rem] leading-tight sm:text-4xl md:text-5xl">
-            Care that looks as precise as it bills.
+          <p className="eyebrow text-teal">Our billing office</p>
+          <h2 className="section-title mt-3">
+            The people who work your claims every day
           </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-mist sm:text-base">
-            From the operations floor to claim desks and payer huddles — this is
-            the medical billing office behind every clean claim.
+          <p className="lede mt-4 max-w-2xl text-mist">
+            Certified medical billers and coders submit claims, chase denials,
+            post payments, and keep payer follow-up moving — so your front desk
+            does not have to.
           </p>
         </Reveal>
 
@@ -84,7 +83,7 @@ export function PhotoShowcase() {
                   className={`rounded-2xl ${photo.className}`}
                   sizes={photo.sizes}
                 />
-                <p className="pointer-events-none absolute bottom-2 left-2 max-w-[calc(100%-1rem)] truncate rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-medium text-ivory shadow-sm sm:bottom-3 sm:left-3 sm:text-xs">
+                <p className="pointer-events-none absolute bottom-2 left-2 max-w-[calc(100%-1rem)] truncate rounded-full bg-white/90 px-2.5 py-1 text-sm font-medium text-ivory shadow-sm sm:bottom-3 sm:left-3">
                   {photo.label}
                 </p>
               </div>

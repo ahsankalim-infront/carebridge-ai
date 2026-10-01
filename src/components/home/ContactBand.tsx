@@ -10,7 +10,7 @@ export function ContactBand() {
         <div className="relative overflow-hidden rounded-[1.5rem] border border-teal/20 sm:rounded-[2rem]">
           <Image
             src={images.cta}
-            alt="Surgical and clinical care environment"
+            alt="Medical billing workstation with clinical records"
             fill
             sizes="100vw"
             className="object-cover"
@@ -18,19 +18,19 @@ export function ContactBand() {
           <div className="absolute inset-0 bg-linear-to-r from-white via-white/88 to-white/70" />
           <div className="animate-glow absolute -top-16 left-1/2 h-40 w-64 -translate-x-1/2 rounded-full bg-teal/25 blur-3xl sm:w-80" />
           <div className="relative px-5 py-10 text-center sm:px-8 sm:py-16">
-            <p className="text-[10px] tracking-[0.18em] text-gold uppercase sm:text-xs sm:tracking-[0.32em]">
-              Next step
+            <p className="eyebrow text-gold">
+              Start billing with CareBridge
             </p>
-            <h2 className="mt-3 font-serif text-[1.75rem] leading-tight sm:text-4xl md:text-5xl">
-              Transform your revenue cycle today
+            <h2 className="section-title mt-3">
+              Put your claims in expert hands
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-mist sm:text-base">
-              Expert medical billing solutions that increase collections, reduce
-              denials, and streamline your operations.
+            <p className="lede mx-auto mt-4 max-w-2xl text-mist">
+              Tell us your specialty, monthly visit volume, and where claims
+              stall. We will show you how medical billing should collect.
             </p>
             <div className="mt-7 flex flex-col justify-center gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link href="/contact" className="btn-primary w-full sm:w-auto">
-                Send a Message
+                Talk to billing
               </Link>
               <Link href="/appointments" className="btn-ghost w-full sm:w-auto">
                 Book Consultation

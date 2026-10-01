@@ -1,21 +1,21 @@
 [
   {
     "id": 1,
-    "quote": "Working with CareBridge reduced our claim rejections by focusing on coding accuracy and payer rules. A few workflow tweaks immediately improved collections.",
+    "quote": "CareBridge took over our medical billing and the rejection pile dropped in the first month. Coding is cleaner, and we finally see which payers are slow to pay.",
     "name": "Dr. Emily Smith",
-    "role": "Primary Care",
+    "role": "Family Practice",
     "location": "Austin, TX"
   },
   {
     "id": 2,
-    "quote": "Their credentialing process was thorough and reduced our payer setup time. The project manager kept us informed and we avoided common application mistakes.",
+    "quote": "Credentialing used to stall new providers for months. Their billing team enrolled us, started claims on time, and kept us off hold with the payers.",
     "name": "Dr. Michael Johnson",
     "role": "Cardiology",
     "location": "Philadelphia, PA"
   },
   {
     "id": 3,
-    "quote": "After onboarding CareBridge we noticed a consistent decline in A/R days and clearer reporting — the transparency in their dashboards helped leadership make faster decisions.",
+    "quote": "Aged A/R was sitting untouched. After they took the billing file, days in A/R came down and the weekly collection report is something I actually open.",
     "name": "Dr. Sophia Lee",
     "role": "Orthopedics",
     "location": "San Diego, CA"

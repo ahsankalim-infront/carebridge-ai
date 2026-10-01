@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | CareBridge Solutions",
   },
   description:
-    "Empowering healthcare providers with innovative revenue cycle management, medical billing, credentialing, A/R recovery, and denial management.",
+    "Medical billing and coding for clinics, labs, and specialty groups. CareBridge submits clean claims, works denials, and collects what your practice has already earned.",
 };
 
 export default function RootLayout({

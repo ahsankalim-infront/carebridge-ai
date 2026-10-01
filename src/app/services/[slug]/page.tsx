@@ -60,11 +60,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-teal/12 text-teal">
               <ServiceIcon name={service.icon} className="h-7 w-7" />
             </div>
-            <p className="text-lg leading-8 text-mist">{service.description}</p>
-            <h2 className="mt-10 font-serif text-3xl">How we work this</h2>
+            <p className="text-lg leading-8 text-mist sm:text-xl">{service.description}</p>
+            <h2 className="section-title mt-10">How we work this</h2>
             <ul className="mt-5 space-y-3">
               {service.features.map((feature) => (
-                <li key={feature} className="flex gap-3 text-sm leading-6 text-ivory/90">
+                <li key={feature} className="flex gap-3 text-base leading-7 text-ivory/90">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
                   {feature}
                 </li>
@@ -75,11 +75,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </Reveal>
         <Reveal delay={0.08}>
           <div className="rounded-[1.5rem] border border-gold/25 bg-linear-to-b from-[#fff8ea] to-white p-5 sm:rounded-[2rem] sm:p-8">
-            <p className="text-xs tracking-[0.28em] text-gold uppercase">Outcomes</p>
-            <h2 className="mt-3 font-serif text-3xl">What practices notice</h2>
+            <p className="eyebrow text-gold">Outcomes</p>
+            <h2 className="section-title mt-3">What practices notice</h2>
             <ul className="mt-6 space-y-4">
               {service.outcomes.map((outcome) => (
-                <li key={outcome} className="rounded-2xl bg-white px-4 py-3 text-sm shadow-[0_8px_20px_rgba(16,42,48,0.06)]">
+                <li key={outcome} className="rounded-2xl bg-white px-4 py-3 text-base shadow-[0_8px_20px_rgba(16,42,48,0.06)]">
                   {outcome}
                 </li>
               ))}
@@ -92,7 +92,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 pb-8 sm:px-5 lg:px-8">
-        <h2 className="font-serif text-2xl sm:text-3xl">More ways we help</h2>
+        <h2 className="section-title">More billing services</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {others.map((item) => (
             <Link
@@ -110,8 +110,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 />
               </div>
               <div className="p-5">
-                <p className="font-semibold">{item.title}</p>
-                <p className="mt-2 text-sm text-mist">{item.excerpt}</p>
+                <p className="text-lg font-semibold">{item.title}</p>
+                <p className="mt-2 text-base text-mist">{item.excerpt}</p>
               </div>
             </Link>
           ))}

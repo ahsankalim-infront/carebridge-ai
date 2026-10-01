@@ -31,13 +31,13 @@ export function PageHero({
       <PageCanvas />
       <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-ink/25 via-ink/45 to-ink/80" />
       <div className="relative z-10 mx-auto max-w-5xl text-center">
-        <p className="mb-3 text-[10px] tracking-[0.18em] text-teal uppercase sm:mb-4 sm:text-xs sm:tracking-[0.32em]">
+        <p className="eyebrow mb-3 text-teal sm:mb-4">
           {eyebrow}
         </p>
-        <h1 className="font-serif text-3xl leading-tight text-gradient sm:text-5xl md:text-6xl">
+        <h1 className="display-title text-gradient">
           {title}
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-mist sm:mt-5 sm:text-lg sm:leading-8">
+        <p className="lede mx-auto mt-4 max-w-2xl text-mist sm:mt-5">
           {body}
         </p>
         {children ? <div className="mt-8">{children}</div> : null}

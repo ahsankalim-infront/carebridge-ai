@@ -10,21 +10,21 @@ import { images } from "@/lib/media";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "CareBridge Solutions combines healthcare expertise with financial intelligence for measurable RCM results.",
+    "CareBridge Solutions is a medical billing company. We code, submit, and collect for clinics, labs, and specialty groups.",
 };
 
 const pillars = [
   {
-    title: "Practice-first operators",
-    body: "We staff certified coders and billing specialists who understand specialty nuance—not generic claim pushers.",
+    title: "Certified medical billers",
+    body: "CPC- and CPB-trained specialists who code CPT, ICD-10, and HCPCS for the specialties you treat — not generic claim pushers.",
   },
   {
-    title: "Payer fluency",
-    body: "Enrollment, edits, and appeals are managed against current commercial, Medicare, and Medicaid rules.",
+    title: "Payer enrollment & follow-up",
+    body: "We enroll providers, submit claims daily, and work commercial, Medicare, and Medicaid denials until the balance is paid or closed.",
   },
   {
-    title: "Visible math",
-    body: "Owners see clean-claim rate, A/R days, denial mix, and cash forecast without waiting for month-end.",
+    title: "Collection reporting you can use",
+    body: "Owners see clean-claim rate, A/R days, denial mix, and cash posted without waiting for a month-end spreadsheet.",
   },
 ];
 
@@ -32,9 +32,9 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About us"
-        title="Built for the business of care."
-        body="CareBridge Solutions partners with practices nationwide from Austin, helping clinicians stay with patients while we protect the revenue those visits create."
+        eyebrow="About CareBridge"
+        title="A medical billing partner for growing practices."
+        body="From Austin, we bill insurance for clinics nationwide. You stay with patients. We code the visit, submit the claim, and collect the payment."
         image={images.team}
       />
 
@@ -42,19 +42,19 @@ export default function AboutPage() {
         <div className="mb-6 grid gap-3 sm:mb-8 sm:gap-4 md:grid-cols-3">
           <TiltImage
             src={images.doctor}
-            alt="Physician partner"
+            alt="Physician whose visits we bill"
             className="h-48 sm:h-56 md:h-64"
             sizes="(min-width: 768px) 33vw, 100vw"
           />
           <TiltImage
             src={images.clinic}
-            alt="CareBridge partner clinic"
+            alt="Hospital and clinic partners"
             className="h-48 sm:h-56 md:h-64"
             sizes="(min-width: 768px) 33vw, 100vw"
           />
           <TiltImage
             src={images.lab}
-            alt="Laboratory billing specialty"
+            alt="Laboratory billing specialty we support"
             className="h-48 sm:h-56 md:h-64"
             sizes="(min-width: 768px) 33vw, 100vw"
           />
@@ -64,8 +64,8 @@ export default function AboutPage() {
           {pillars.map((pillar, index) => (
             <Reveal key={pillar.title} delay={index * 0.08} className="min-w-0">
               <article className="glass h-full rounded-3xl p-5 sm:p-7">
-                <h2 className="text-xl font-semibold">{pillar.title}</h2>
-                <p className="mt-3 leading-7 text-mist">{pillar.body}</p>
+                <h2 className="text-2xl font-semibold">{pillar.title}</h2>
+                <p className="mt-3 text-base leading-7 text-mist sm:text-lg">{pillar.body}</p>
               </article>
             </Reveal>
           ))}
@@ -75,19 +75,19 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2">
             <TiltImage
               src={images.consult}
-              alt="Consultation with a practice owner"
+              alt="Practice owner reviewing a billing consultation"
               className="h-52 rounded-none sm:h-72 lg:h-full"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
             <div className="p-5 sm:p-8 md:p-10">
-              <h2 className="font-serif text-3xl sm:text-4xl">Our story</h2>
-              <p className="mt-4 text-base leading-7 text-mist sm:mt-5 sm:text-lg sm:leading-8">
-                Too many practices still run revenue on heroic staff and opaque vendors.
-                We built CareBridge to be the opposite: meticulous coding, rapid
-                credentialing, disciplined A/R, and analytics that explain the “why”
-                behind every dollar. From {company.address}, we support internal
-                medicine, labs, therapy, behavioral health, and hospital-based groups
-                with the same standard—clean claims, faster payments, honest reporting.
+              <h2 className="section-title">How we started</h2>
+              <p className="lede mt-4 text-mist sm:mt-5">
+                Too many practices still run billing on overworked staff or opaque
+                vendors. CareBridge was built as a medical billing company: accurate
+                coding, faster payer enrollment, daily claim follow-up, and reports
+                that explain every dollar. From {company.address} we bill for
+                primary care, labs, therapy, behavioral health, and hospital-based
+                groups — clean claims, faster payments, honest reporting.
               </p>
             </div>
           </div>

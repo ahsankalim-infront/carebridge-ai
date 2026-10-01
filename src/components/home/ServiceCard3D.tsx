@@ -57,9 +57,9 @@ export function ServiceCard3D({ service }: { service: Service }) {
         <div className="service-icon-3d relative flex h-12 w-12 items-center justify-center rounded-2xl bg-teal/12 text-teal">
           <ServiceIcon name={service.icon} />
         </div>
-        <h3 className="relative mt-5 text-lg font-semibold sm:text-xl">{service.title}</h3>
-        <p className="relative mt-3 text-sm leading-7 text-mist">{service.excerpt}</p>
-        <span className="relative mt-6 inline-flex items-center gap-2 text-sm text-teal">
+        <h3 className="relative mt-5 text-xl font-semibold sm:text-2xl">{service.title}</h3>
+        <p className="relative mt-3 text-base leading-7 text-mist">{service.excerpt}</p>
+        <span className="relative mt-6 inline-flex items-center gap-2 text-base text-teal">
           Learn more
           <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>

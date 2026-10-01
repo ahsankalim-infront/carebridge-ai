@@ -6,6 +6,7 @@ export const images = {
   analytics: "/images/analytics.jpg",
   lab: "/images/lab.jpg",
   consult: "/images/consult.jpg",
+  billing: "/images/billing.jpg",
   cta: "/images/cta.jpg",
   officeFloor: "/images/office-floor.jpg",
   officeTeam: "/images/office-team.jpg",

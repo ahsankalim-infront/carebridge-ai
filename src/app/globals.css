@@ -97,6 +97,44 @@ body {
   color: var(--ivory);
   color-scheme: light;
   font-family: var(--font-outfit), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.display-title {
+  font-family: var(--font-instrument), Georgia, serif;
+  font-size: clamp(2.4rem, 5.4vw, 4.25rem);
+  line-height: 1.12;
+}
+
+.section-title {
+  font-family: var(--font-instrument), Georgia, serif;
+  font-size: clamp(2.05rem, 4.2vw, 3.15rem);
+  line-height: 1.18;
+}
+
+.lede {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+@media (min-width: 640px) {
+  .eyebrow {
+    font-size: 0.9rem;
+    letter-spacing: 0.16em;
+  }
+
+  .lede {
+    font-size: 1.2rem;
+    line-height: 1.75;
+  }
 }
 
 ::selection {
@@ -155,9 +193,10 @@ body {
   border-radius: 999px;
   background: linear-gradient(135deg, #1ac4ab, #0e9b87);
   color: #04201b;
+  font-size: 1.05rem;
   font-weight: 600;
-  padding: 0.85rem 1.2rem;
-  min-height: 48px;
+  padding: 0.9rem 1.35rem;
+  min-height: 52px;
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
   box-shadow: 0 10px 26px rgba(14, 155, 135, 0.22);
 }
@@ -177,9 +216,10 @@ body {
   border: 1px solid rgba(18, 36, 44, 0.12);
   background: rgba(255, 255, 255, 0.72);
   color: #12242c;
+  font-size: 1.05rem;
   font-weight: 500;
-  padding: 0.85rem 1.2rem;
-  min-height: 48px;
+  padding: 0.9rem 1.35rem;
+  min-height: 52px;
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 

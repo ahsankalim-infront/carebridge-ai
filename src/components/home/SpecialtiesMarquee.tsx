@@ -14,15 +14,15 @@ export function SpecialtiesMarquee({ specialties }: { specialties: Specialty[] }
       <PageCanvas />
       <div className="pointer-events-none absolute inset-0 bg-white/80 md:bg-ink/40" />
       <Reveal className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
-        <p className="text-[10px] tracking-[0.18em] text-gold uppercase sm:text-xs sm:tracking-[0.32em]">
-          Coverage
+        <p className="eyebrow text-gold">
+          Specialties we bill
         </p>
-        <h2 className="mt-3 font-serif text-[1.75rem] leading-tight sm:text-4xl md:text-5xl">
-          Our Popular Specialties
+        <h2 className="section-title mt-3">
+          Built for the visits you already see
         </h2>
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-mist sm:text-base">
-          From primary care to molecular labs, we bill the specialties most
-          practices find hardest to staff in-house.
+        <p className="lede mt-4 max-w-2xl text-mist">
+          Primary care, labs, therapy, behavioral health, and hospital-based
+          groups — coded to current CPT, ICD-10, and payer rules.
         </p>
       </Reveal>
 
@@ -33,7 +33,7 @@ export function SpecialtiesMarquee({ specialties }: { specialties: Specialty[] }
           {loop.map((item, index) => (
             <div
               key={`${item.id}-${index}`}
-              className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-sm whitespace-nowrap text-ivory sm:px-5 sm:py-2.5"
+              className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-base whitespace-nowrap text-ivory sm:px-5 sm:py-2.5"
             >
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal/12 text-teal">
                 <SpecialtyIcon name={item.name} className="h-3.5 w-3.5" />

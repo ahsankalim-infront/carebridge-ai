@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Medical billing, credentialing, A/R recovery, eligibility, denial management, and revenue analytics.",
+    "Medical billing and coding, credentialing, eligibility, denial management, A/R recovery, and collection reporting.",
 };
 
 export default async function ServicesPage() {
@@ -19,15 +19,15 @@ export default async function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Full-cycle RCM"
-        title="Services built for cleaner cash."
-        body="Six connected disciplines—coding, enrollment, eligibility, recovery, denials, and analytics—working as one operating system for your revenue."
-        image={images.clinic}
+        eyebrow="Medical billing services"
+        title="Everything between the visit and the payment."
+        body="Coding, payer enrollment, eligibility, claim follow-up, denials, and collection reports — as one billing file, not six disconnected vendors."
+        image={images.billing}
       />
       <ServicesGrid
         services={services.data}
-        heading="Everything between charge and cash"
-        intro="Choose a single service or a complete outsourced revenue cycle. Every engagement includes transparent reporting."
+        heading="Choose full-cycle billing or a single service"
+        intro="Outsource the entire billing file, or start with coding, credentialing, or aged A/R. Every engagement includes a clear collection report."
       />
       <ContactBand />
     </>

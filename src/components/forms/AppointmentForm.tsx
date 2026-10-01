@@ -48,23 +48,23 @@ export function AppointmentForm() {
   return (
     <form onSubmit={onSubmit} className="glass-strong space-y-4 rounded-[1.5rem] p-5 sm:rounded-[2rem] sm:p-6 md:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block text-sm">
+        <label className="block text-base">
           <span className="mb-2 block text-mist">Name</span>
           <input name="name" required className="field" placeholder="Your name" />
         </label>
-        <label className="block text-sm">
+        <label className="block text-base">
           <span className="mb-2 block text-mist">Email</span>
           <input name="email" type="email" required className="field" placeholder="you@practice.com" />
         </label>
-        <label className="block text-sm">
+        <label className="block text-base">
           <span className="mb-2 block text-mist">Phone</span>
           <input name="phone" required className="field" placeholder="+1 737-443-5680" />
         </label>
-        <label className="block text-sm">
+        <label className="block text-base">
           <span className="mb-2 block text-mist">Preferred Date</span>
           <input name="preferredDate" type="date" required className="field" />
         </label>
-        <label className="block text-sm sm:col-span-2">
+        <label className="block text-base sm:col-span-2">
           <span className="mb-2 block text-mist">Preferred Time</span>
           <select name="preferredTime" required className="field" defaultValue="">
             <option value="" disabled>
@@ -78,28 +78,28 @@ export function AppointmentForm() {
           </select>
         </label>
       </div>
-      <label className="block text-sm">
-        <span className="mb-2 block text-mist">Reason for Consultation</span>
+      <label className="block text-base">
+        <span className="mb-2 block text-mist">What should we review?</span>
         <textarea
           name="reason"
           required
           rows={5}
           className="field resize-none"
-          placeholder="Credentialing, A/R recovery, new location, specialty expansion..."
+          placeholder="Full-cycle medical billing, coding help, credentialing, or aged A/R recovery..."
         />
       </label>
       <button type="submit" className="btn-primary w-full sm:w-auto" disabled={status.state === "saving"}>
-        {status.state === "saving" ? "Booking..." : "Book Appointment"}
+        {status.state === "saving" ? "Booking..." : "Book billing review"}
       </button>
 
       {status.state === "success" ? (
-        <p className="rounded-2xl bg-teal/10 px-4 py-3 text-sm text-teal">
+        <p className="rounded-2xl bg-teal/10 px-4 py-3 text-base text-teal">
           Consultation reserved. Stored in {status.source === "mysql" ? "MySQL" : "JSON fallback"} and
-          our team will confirm shortly.
+          our billing team will confirm shortly.
         </p>
       ) : null}
       {status.state === "error" ? (
-        <p className="rounded-2xl bg-red-500/10 px-4 py-3 text-sm text-red-700">
+        <p className="rounded-2xl bg-red-500/10 px-4 py-3 text-base text-red-700">
           {status.message}
         </p>
       ) : null}
