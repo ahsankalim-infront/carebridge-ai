@@ -14,6 +14,8 @@ export const images = {
   officeWorkstations: "/images/office-workstations.jpg",
   officeClaims: "/images/office-claims.jpg",
   officeMeeting: "/images/office-meeting.jpg",
+  chartReview: "/images/chart-review.jpg",
+  denial: "/images/denial.jpg",
 } as const;
 
 export const serviceImages: Record<string, string> = {
@@ -21,7 +23,7 @@ export const serviceImages: Record<string, string> = {
   "credentialing-enrollment": "/images/credentialing.jpg",
   "ar-recovery": "/images/analytics.jpg",
   "eligibility-verification": "/images/consult.jpg",
-  "denial-management": "/images/hospital.jpg",
+  "denial-management": "/images/denial.jpg",
   "revenue-analytics": "/images/dashboard.jpg",
 };
 

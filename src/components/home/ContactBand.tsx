@@ -10,7 +10,7 @@ export function ContactBand() {
         <div className="relative overflow-hidden rounded-[1.5rem] border border-teal/20 sm:rounded-[2rem]">
           <Image
             src={images.cta}
-            alt="Medical billing workstation with clinical records"
+            alt="Clinician completing medical billing on a laptop"
             fill
             sizes="100vw"
             className="object-cover"

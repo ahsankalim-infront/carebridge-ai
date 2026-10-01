@@ -6,45 +6,45 @@ import { images } from "@/lib/media";
 
 const officePhotos = [
   {
-    src: images.officeFloor,
-    alt: "Billing managers reviewing collection and denial reports",
-    label: "Collection review",
+    src: images.billing,
+    alt: "Clinician reviewing patient accounts and claims on a laptop",
+    label: "Medical billing workstation",
     className: "h-44 sm:h-64 md:h-80",
     sizes: "100vw",
     wide: true,
   },
   {
-    src: images.officeWorkstations,
-    alt: "Medical billing team working payer follow-up together",
-    label: "Claim work queues",
+    src: images.chartReview,
+    alt: "Clinical team reviewing records that become billable claims",
+    label: "Chart and claim review",
     className: "h-36 sm:h-48 md:h-56",
     sizes: "(min-width: 768px) 50vw, 50vw",
   },
   {
     src: images.officeTeam,
-    alt: "Practice and billing leads agreeing on an outsourced billing plan",
-    label: "Practice onboarding",
+    alt: "Billing specialists working a claim file together",
+    label: "Billing team huddle",
     className: "h-36 sm:h-48 md:h-56",
     sizes: "(min-width: 768px) 50vw, 50vw",
   },
   {
-    src: images.officeDesk,
-    alt: "Specialist posting payments and working patient accounts",
-    label: "Payment posting",
+    src: images.consult,
+    alt: "Physician checking visit documentation on a tablet",
+    label: "EHR visit review",
     className: "h-36 sm:h-48 md:h-56",
     sizes: "(min-width: 768px) 33vw, 50vw",
   },
   {
     src: images.officeClaims,
-    alt: "Claims, invoices, and reimbursement paperwork",
-    label: "Claims & invoices",
+    alt: "Appointment schedule and stethoscope on a billing desk",
+    label: "Scheduling & claims",
     className: "h-36 sm:h-48 md:h-56",
     sizes: "(min-width: 768px) 33vw, 50vw",
   },
   {
     src: images.officeMeeting,
-    alt: "Billing huddle planning denial appeals",
-    label: "Denial huddle",
+    alt: "Practice owners reviewing an outsourced billing plan",
+    label: "Practice consultation",
     className: "h-36 sm:h-48 md:h-56",
     sizes: "(min-width: 768px) 33vw, 50vw",
   },
@@ -53,7 +53,7 @@ const officePhotos = [
 export function PhotoShowcase() {
   return (
     <section className="relative overflow-hidden">
-      <BackdropImage src={images.officeFloor} className="opacity-15 md:opacity-15" />
+      <BackdropImage src={images.billing} className="opacity-15 md:opacity-15" />
       <PageCanvas />
       <div className="pointer-events-none absolute inset-0 bg-white/75 md:bg-ink/35" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-5 md:py-12 lg:px-8">

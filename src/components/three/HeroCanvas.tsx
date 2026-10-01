@@ -192,8 +192,8 @@ function PhotoFrame({
 function FloatingPhotos() {
   return (
     <>
-      <PhotoFrame url="/images/doctor.jpg" position={[3.15, 0.85, 0.15]} />
-      <PhotoFrame url="/images/clinic.jpg" position={[3.45, -1.05, -0.35]} scale={0.78} />
+      <PhotoFrame url="/images/billing.jpg" position={[3.15, 0.85, 0.15]} />
+      <PhotoFrame url="/images/consult.jpg" position={[3.45, -1.05, -0.35]} scale={0.78} />
     </>
   );
 }

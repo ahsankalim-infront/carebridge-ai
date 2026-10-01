@@ -48,7 +48,7 @@ export default function AboutPage() {
           />
           <TiltImage
             src={images.clinic}
-            alt="Hospital and clinic partners"
+            alt="Hospital partner CareBridge bills for"
             className="h-48 sm:h-56 md:h-64"
             sizes="(min-width: 768px) 33vw, 100vw"
           />
@@ -75,7 +75,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2">
             <TiltImage
               src={images.consult}
-              alt="Practice owner reviewing a billing consultation"
+              alt="Physician reviewing visit notes that become claims"
               className="h-52 rounded-none sm:h-72 lg:h-full"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />

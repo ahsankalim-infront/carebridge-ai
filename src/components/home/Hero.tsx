@@ -55,7 +55,7 @@ export function Hero() {
           <div className="relative col-span-2 h-36 overflow-hidden rounded-2xl sm:h-44">
             <TiltImage
               src={images.doctor}
-              alt="Physician reviewing clinical notes that become billable claims"
+              alt="Practice physician whose visits CareBridge bills"
               className="h-full w-full rounded-2xl"
               sizes="100vw"
               priority
@@ -63,8 +63,8 @@ export function Hero() {
           </div>
           <div className="relative h-28 overflow-hidden rounded-2xl sm:h-32">
             <TiltImage
-              src={images.officeWorkstations}
-              alt="Medical billing specialists working claims"
+              src={images.billing}
+              alt="Clinician working medical billing on a laptop"
               className="h-full w-full rounded-2xl"
               sizes="50vw"
             />
@@ -72,7 +72,7 @@ export function Hero() {
           <div className="relative h-28 overflow-hidden rounded-2xl sm:h-32">
             <TiltImage
               src={images.officeTeam}
-              alt="Billing team reviewing payer follow-up"
+              alt="Medical billing team reviewing a claim file"
               className="h-full w-full rounded-2xl"
               sizes="50vw"
             />
@@ -83,7 +83,7 @@ export function Hero() {
           <div className="animate-float absolute top-0 right-6 h-[340px] w-[260px] shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
             <TiltImage
               src={images.doctor}
-              alt="Physician reviewing clinical notes that become billable claims"
+              alt="Practice physician whose visits CareBridge bills"
               className="h-full w-full"
               sizes="260px"
               priority
@@ -92,7 +92,7 @@ export function Hero() {
           <div className="animate-float absolute right-40 bottom-4 h-[220px] w-[280px] shadow-[0_24px_60px_rgba(0,0,0,0.16)] [animation-delay:1.2s]">
             <TiltImage
               src={images.clinic}
-              alt="Hospital and clinic partners we bill for"
+              alt="Hospital partner whose emergency and clinic visits we bill"
               className="h-full w-full"
               sizes="280px"
             />

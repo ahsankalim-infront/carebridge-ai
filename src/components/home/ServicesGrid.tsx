@@ -16,7 +16,7 @@ export function ServicesGrid({
 }) {
   return (
     <section className="relative overflow-hidden">
-      <BackdropImage src={images.hospital} className="opacity-15 md:opacity-18" />
+      <BackdropImage src={images.billing} className="opacity-15 md:opacity-18" />
       <ServicesCanvas />
       <div className="pointer-events-none absolute inset-0 bg-white/70 md:bg-ink/40" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-5 md:py-20 lg:px-8 lg:py-24">

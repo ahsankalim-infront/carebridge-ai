@@ -10,7 +10,7 @@ export function SpecialtiesMarquee({ specialties }: { specialties: Specialty[] }
 
   return (
     <section className="relative overflow-hidden py-14 md:py-20">
-      <BackdropImage src={images.consult} className="opacity-12 md:opacity-14" />
+      <BackdropImage src={images.chartReview} className="opacity-12 md:opacity-14" />
       <PageCanvas />
       <div className="pointer-events-none absolute inset-0 bg-white/80 md:bg-ink/40" />
       <Reveal className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
